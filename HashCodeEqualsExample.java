@@ -1,5 +1,5 @@
 package org.cdb.systems.foo;
-// HashCode, equals, toString by the most effective way: the best practices
+// HashCode, equals, toString and UUID by the most effective way: the best practices
 
 import java.util.Set;
 import java.util.UUID;
@@ -23,7 +23,15 @@ public class HashCodeEqualsExample  {
         this.field1 = field1;
         this.field2 = field2;
     }
-
+    
+    public HashCodeEqualsExample( 
+                Object field1,
+                Object field2) {
+        this.id = UUID.randomUUID();
+        this.field1 = field1;
+        this.field2 = field2;
+    }
+    
     public UUID getId() {
         return id;
     }
