@@ -1,4 +1,5 @@
 package org.cdb.systems.foo;
+// HashCode, equals, toString by the most effective way: the best practices
 
 import java.util.Set;
 import java.util.UUID;
