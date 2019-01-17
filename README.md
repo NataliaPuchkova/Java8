@@ -22,13 +22,13 @@ A disadvantage of a Stream is that filters, mappings, etc., cannot throw checked
 
 
 Streams are a more declarative style. Or a more expressive style. It may be considered better to declare your intent in code, than to describe how it's done:
-...
+```
  return people
      .filter( p -> p.age() < 19)
      .collect(toList());
-...
+```
 ... says quite clearly that you're filtering matching elements from a list, whereas:
-...
+```
  List<Person> filtered = new ArrayList<>();
  for(Person p : people) {
      if(p.age() < 19) {
@@ -36,7 +36,7 @@ Streams are a more declarative style. Or a more expressive style. It may be cons
      }
  }
  return filtered;
-...
+```
 Says "I'm doing a loop". The purpose of the loop is buried deeper in the logic.
 
 **Streams are often terser** The same example shows this. Terser isn't always better, but if you can be terse and expressive at the same time, so much the better.
@@ -48,9 +48,9 @@ Says "I'm doing a loop". The purpose of the loop is buried deeper in the logic.
 **Streams encourage looser coupling** Your stream-handling code doesn't need to know the source of the stream, or its eventual terminating method.
 
 **Streams can succinctly express quite sophisticated behaviour**. For example:
-...
+```
  stream.filter(myfilter).findFirst();
-...
+```
 Might look at first glance as if it filters the whole stream, then returns the first element. But in fact findFirst() drives the whole operation, so it efficiently stops after finding one item.
 
 **Streams provide scope for future efficiency gains.** Some people have benchmarked and found that single-threaded streams from in-memory Lists or arrays can be slower than the equivalent loop. This is plausible because there are more objects and overheads in play.
