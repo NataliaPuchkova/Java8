@@ -22,4 +22,10 @@ class Example {
                                        .flatMap(Set::stream)
                                        .collect(Collectors.toSet());
   }         
+            
+ // Create map from the list where key is one of the object's field           
+  public Map<String, List<Account>> getAccounts(ArrayList<Account> accountList){
+    return accountList.stream()
+                      .collect(Collectors.groupBy(Account::getSomething));
+  }          
 }
