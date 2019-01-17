@@ -1,9 +1,11 @@
 import java.util.*;
 import java.util.stream.Collectors;
+import com.fgasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
 
 class Example {
 
- // Create set of object's fields from the list of objects
+ // Create set of object's fields from the list of objects using streams
   public HashSet<String> getFormat(String time, ArrayList<Subscriptor> subs){
     return (HashSet<String> subs.stream()
                                  .filter(x->x.getTime().equals(time))
@@ -27,5 +29,29 @@ class Example {
   public Map<String, List<Account>> getAccounts(ArrayList<Account> accountList){
     return accountList.stream()
                       .collect(Collectors.groupBy(Account::getSomething));
-  }          
+  }    
+            
+ // Create reports for the objects using streams
+ public static void split( ArrayList<Account> accountList, String path){
+   accountList.getgetFormatSet()
+              .forEach(x->{ accountList.getTime(x, accountList)
+                                       .stream()
+                                       .forEach(k->createFile(accountList, x, path, k));
+                          });  
+ }          
+ 
+ //create json file based on POJO 
+ public static void createFile( ArrayList<Account> accountList, String var, String path, String time){
+  try{
+       ObjectMapper mapper = new ObjectMapper();
+       AccounListOutput l = new AccounListOutput(accountList, var, time);
+       mapper.writeValue(new File(path+var+"_"+time+".json"),l);
+       String jsonInString = mapper.writeValueAsString(l);
+       System.out.println("File "+path+var+"_"+time+".json"+" was created at"+(new Date()));
+  }catch(Exception e){
+   System.out.println("Exception when we crearted the file");
+   e.printStackTrace();
+  }
+ 
+ }          
 }
