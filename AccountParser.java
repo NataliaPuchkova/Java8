@@ -3,7 +3,7 @@ import java.net.*;
 import java.nio.file.*;
 
 public class AccountParser extends JSONParser{
-  public static AccountList readJSONFile (String path) throws IOException{
+  public static AccountList readJSONFileFromAPI () throws IOException{
     URL url = new URL("You URL request is here');
     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
     conn.setRequestMethod("GET");
@@ -19,12 +19,19 @@ public class AccountParser extends JSONParser{
        } finally{
         if (url!=null) url = null;
        }
-      }
+      
     }
 
-    }
+    
     AccountList req = objectMapper.readValue(jsonData, AccountList.class);
     return req;
     
   }
+                      
+ public static  AccountList readJSONFileFromFile (String path)  {
+  jsonData = Files.readAllBytes(Paths.get(path));
+   AccountList req = objectMapper.readValue(jsonData, AccountList.class);
+    return req;
+   
+ }                 
 }
