@@ -7,6 +7,6 @@ Example.java
 - Create Map and Set from list of objects using streams
 - Create json based on POJO
 
-AccountParser.java
+AccountParser.java and JSONParser.java
 - Read json from API
 - Read json from File
