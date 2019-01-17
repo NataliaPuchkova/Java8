@@ -53,5 +53,9 @@ class Example {
    e.printStackTrace();
   }
  
+ }    
+ // print map in java 8           
+ public void printMap( Map<String, List<Account>> map){
+  map.forEach((x,y)->System.out.println("Key="+x+", value="+y);
  }          
 }
