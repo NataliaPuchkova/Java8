@@ -10,3 +10,6 @@ Example.java
 AccountParser.java and JSONParser.java
 - Read json from API
 - Read json from File
+
+HashCodeEqualsExample.java
+- BEst practices for hashCode, Equals, toString implementation
