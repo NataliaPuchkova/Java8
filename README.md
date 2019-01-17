@@ -6,3 +6,7 @@ This repository include some examples of Java applications to check java 8 funct
 Example.java 
 - Create Map and Set from list of objects using streams
 - Create json based on POJO
+
+AccountParser.java
+- Read json from API
+- Read json from File
